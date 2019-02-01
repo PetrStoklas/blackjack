@@ -100,29 +100,23 @@ class Deck {
   }
 
   getStart(){
-    console.log('VERY START: ', indexOfCards);
-    this.mount(dealerHand);
-    console.log('AFTER FIRST MOUNT: ', indexOfCards);
+    this.mount(dealerHand);//GIVES FIRST CARD ON TABLE
     this.update();
-    console.log('AFTER FIRST UPDATE: ', indexOfCards);
 
-    this.mount(playerHand);
-    console.log('AFTER SECOND MOUNT: ', indexOfCards);
+    this.mount(playerHand);//SECOND CARD ON TABLE
     this.update();
-    console.log('AFTER SECOND UPDATE: ', indexOfCards);
     
-    this.reverse = document.createElement('div');
+    this.reverse = document.createElement('div');//REVERSED CARD ON TABLE
     this.reverse.className = "card face-revers";
     dealerHand.appendChild(this.reverse);
-    this.mount(playerHand);
-    console.log('AFTER THIRD MOUNT: ', indexOfCards);
+    this.mount(playerHand);//THIRD CARD ON TABLE
     this.update();
-    console.log('AFTER THIRD UPDATE: ', indexOfCards);
     
-    this.player.score = this.cards[1].getValue() + this.cards[2].getValue();
+    
+    this.player.score = this.cards[1].getValue() + this.cards[2].getValue();//ADDS PLAYERS SCORE AFTER START
     this.player.update();
 
-    this.dealer.score = this.cards[0].getValue();
+    this.dealer.score = this.cards[0].getValue();//ADDS CASINOS  PRE-SCORE AFTER START
     this.dealer.updateInfo();
   }
 

@@ -2,6 +2,7 @@ class Player{
     constructor(name){
         this.name = name;
         this.score = 0;
+        
     }
 
     update() {
@@ -17,6 +18,6 @@ class Player{
         } else if (this.score === 21) {
             this.playerScore.textContent = `score: ${this.score} YOU WIN`;
 
-        }
+        } 
     }
 }
