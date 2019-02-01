@@ -2,6 +2,7 @@ let indexOfCards = 0;
 
 document.addEventListener('DOMContentLoaded', () => {
   const deck = new Deck();
+  deck.shuffle();
   // deck.mount();
   const playerOne = new Player('juan');
 
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // playerOne.update();
 
   // Create and shuffle a new deck of cards
-  // deck.shuffle();
   console.log(deck);
 });
 
