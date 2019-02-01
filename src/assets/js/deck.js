@@ -67,6 +67,7 @@ class Deck {
 
     this.index = 0;
     this.player;
+    this.dealer;
   }
 
   /*
@@ -101,11 +102,17 @@ class Deck {
   getStart(){
     this.mount(dealerHand);
     this.mount(playerHand);
-    this.mount(dealerHand);
+    // this.mount(dealerHand);
+    this.reverse = document.createElement('div');
+    this.reverse.className = "card face-revers";
+    dealerHand.appendChild(this.reverse);
     this.mount(playerHand);
-
-    this.player.score = this.cards[1].getValue() + this.cards[3].getValue();
+    
+    this.player.score = this.cards[1].getValue() + this.cards[2].getValue();
     this.player.update();
+
+    this.dealer.score = this.cards[0].getValue();
+    this.dealer.update();
   }
 
 

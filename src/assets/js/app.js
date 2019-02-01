@@ -1,4 +1,4 @@
-let indexOfCards = 4;//AFTER getStart()
+let indexOfCards = 3;//AFTER getStart()
 
 const dealerHand = document.querySelector('.dealer-cards');
 const playerHand = document.querySelector('.player-cards');
@@ -7,7 +7,10 @@ const playerHand = document.querySelector('.player-cards');
 document.addEventListener('DOMContentLoaded', () => {
   const deck = new Deck();
   const playerOne = new Player('juan');
+  const dealer = new Dealer();
+
   deck.player = playerOne;
+  deck.dealer = dealer;
   // deck.mount();
   deck.shuffle();
   deck.getStart();
