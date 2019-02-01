@@ -1,6 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Create and shuffle a new deck of cards
   const deck = new Deck();
-  deck.shuffle();
+  // deck.mount();
+  const playerOne = new Player('juan');
+
+
+  const hitBtn = document.querySelector('.js-hit');
+  hitBtn.addEventListener('click', () => { 
+    deck.mount();
+    playerOne.update()});
+
+  // playerOne.update();
+
+  // Create and shuffle a new deck of cards
+  // deck.shuffle();
   console.log(deck);
 });
+
+// alert('ahoj');

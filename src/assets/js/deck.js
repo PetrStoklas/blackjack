@@ -64,6 +64,7 @@ class Deck {
       new Card('queen', 'diamonds'),
       new Card('king', 'diamonds'),
     ]
+
   }
 
   /*
@@ -76,5 +77,15 @@ class Deck {
       this.cards[i] = this.cards[j];
       this.cards[j] = swap;
     }
+  }
+
+  render(){
+    this.element = document.createElement('div');
+    this.element.className = `card face-${this.cards[0].rank}-of-${this.cards[0].suit}`;
+    return this.element;
+  }
+
+  mount(){
+    document.querySelector('.player-cards').appendChild(this.render());
   }
 }
