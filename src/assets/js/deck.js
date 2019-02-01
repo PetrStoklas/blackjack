@@ -65,7 +65,7 @@ class Deck {
       new Card('king', 'diamonds'),
     ]
 
-    this.index = 0;
+    // this.index = 0;
     this.player;
     this.dealer;
   }
@@ -83,36 +83,47 @@ class Deck {
   }
 
   render(){
-    console.log('rendered');
+    // console.log('rendered');
     this.element = document.createElement('div');
-    this.element.className = `card face-${this.cards[this.index].rank}-of-${this.cards[this.index].suit}`;
+    this.element.className = `card face-${this.cards[indexOfCards].rank}-of-${this.cards[indexOfCards].suit}`;
     return this.element;
   }
   
   mount(parent){
-    console.log('start works deck');
+    // console.log('start works deck');
     parent.appendChild(this.render());
-    this.update();
+    // this.update();
   }
 
   update(){
-    this.index++;
+    indexOfCards++;
   }
 
   getStart(){
+    console.log('VERY START: ', indexOfCards);
     this.mount(dealerHand);
+    console.log('AFTER FIRST MOUNT: ', indexOfCards);
+    this.update();
+    console.log('AFTER FIRST UPDATE: ', indexOfCards);
+
     this.mount(playerHand);
-    // this.mount(dealerHand);
+    console.log('AFTER SECOND MOUNT: ', indexOfCards);
+    this.update();
+    console.log('AFTER SECOND UPDATE: ', indexOfCards);
+    
     this.reverse = document.createElement('div');
     this.reverse.className = "card face-revers";
     dealerHand.appendChild(this.reverse);
     this.mount(playerHand);
+    console.log('AFTER THIRD MOUNT: ', indexOfCards);
+    this.update();
+    console.log('AFTER THIRD UPDATE: ', indexOfCards);
     
     this.player.score = this.cards[1].getValue() + this.cards[2].getValue();
     this.player.update();
 
     this.dealer.score = this.cards[0].getValue();
-    this.dealer.update();
+    this.dealer.updateInfo();
   }
 
 
