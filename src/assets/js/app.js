@@ -1,3 +1,5 @@
+let indexOfCards = 0;
+
 document.addEventListener('DOMContentLoaded', () => {
   const deck = new Deck();
   // deck.mount();
@@ -7,7 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const hitBtn = document.querySelector('.js-hit');
   hitBtn.addEventListener('click', () => { 
     deck.mount();
-    playerOne.update()});
+    
+    playerOne.score += deck.cards[indexOfCards].getValue();
+    playerOne.update();
+    indexOfCards++;
+  
+  });
 
   // playerOne.update();
 

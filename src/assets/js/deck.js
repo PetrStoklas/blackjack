@@ -65,6 +65,7 @@ class Deck {
       new Card('king', 'diamonds'),
     ]
 
+    this.index = 0;
   }
 
   /*
@@ -81,11 +82,18 @@ class Deck {
 
   render(){
     this.element = document.createElement('div');
-    this.element.className = `card face-${this.cards[0].rank}-of-${this.cards[0].suit}`;
+    this.element.className = `card face-${this.cards[this.index].rank}-of-${this.cards[this.index].suit}`;
     return this.element;
   }
 
   mount(){
     document.querySelector('.player-cards').appendChild(this.render());
+    this.update();
   }
+
+  update(){
+    this.index++;
+  }
+
+
 }

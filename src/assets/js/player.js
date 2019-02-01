@@ -1,7 +1,7 @@
 class Player{
     constructor(name){
         this.name = name;
-        this.score = 6;
+        this.score = 0;
     }
 
     update() {
