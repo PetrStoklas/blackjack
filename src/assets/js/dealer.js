@@ -29,16 +29,16 @@ class Dealer{
     }
     winOrLose() {     
         this.playerScore = document.querySelector('.player-score');
-        if (this.score <= 21 ) 
+        if (this.score <= 21 ) {
             if  (this.score > this.opponent.score) {  
-                this.playerScore.textContent = `score: ${this.score} YOU LOSE`;
+                this.playerScore.textContent = `score: ${this.opponent.score} YOU LOSE`;
             } 
             else if (this.score === this.opponent.score) {
-                this.playerScore.textContent = `score: ${this.score} STAND OFF`;
+                this.playerScore.textContent = `score: ${this.opponent.score} STAND OFF`;
             }
-
+        }
         else {
-            this.playerScore.textContent = `score: ${this.score} YOU WIN`;
+            this.playerScore.textContent = `score: ${this.opponent.score} YOU WIN`;
         }     
     }
 }
