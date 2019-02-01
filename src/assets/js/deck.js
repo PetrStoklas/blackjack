@@ -66,6 +66,7 @@ class Deck {
     ]
 
     this.index = 0;
+    this.player;
   }
 
   /*
@@ -81,18 +82,30 @@ class Deck {
   }
 
   render(){
+    console.log('rendered');
     this.element = document.createElement('div');
     this.element.className = `card face-${this.cards[this.index].rank}-of-${this.cards[this.index].suit}`;
     return this.element;
   }
-
-  mount(){
-    document.querySelector('.player-cards').appendChild(this.render());
+  
+  mount(parent){
+    console.log('start works deck');
+    parent.appendChild(this.render());
     this.update();
   }
 
   update(){
     this.index++;
+  }
+
+  getStart(){
+    this.mount(dealerHand);
+    this.mount(playerHand);
+    this.mount(dealerHand);
+    this.mount(playerHand);
+
+    this.player.score = this.cards[1].getValue() + this.cards[3].getValue();
+    this.player.update();
   }
 
 
