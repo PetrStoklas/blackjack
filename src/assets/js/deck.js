@@ -115,6 +115,7 @@ class Deck {
     
     this.player.score = this.cards[1].getValue() + this.cards[2].getValue();//ADDS PLAYERS SCORE AFTER START
     this.player.update();
+    
 
     this.dealer.score = this.cards[0].getValue();//ADDS CASINOS  PRE-SCORE AFTER START
     this.dealer.updateInfo();

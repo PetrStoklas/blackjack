@@ -27,13 +27,18 @@ class Dealer{
         }
         this.updateInfo();
     }
-    winOrLose() {
-        
+    winOrLose() {     
         this.playerScore = document.querySelector('.player-score');
-        if (this.score <= 21 && this.score > this.opponent.score) {  
-            this.playerScore.textContent = `score: ${this.score} YOU LOSE`;
-        } else {
+        if (this.score <= 21 ) 
+            if  (this.score > this.opponent.score) {  
+                this.playerScore.textContent = `score: ${this.score} YOU LOSE`;
+            } 
+            else if (this.score === this.opponent.score) {
+                this.playerScore.textContent = `score: ${this.score} STAND OFF`;
+            }
+
+        else {
             this.playerScore.textContent = `score: ${this.score} YOU WIN`;
-        }
+        }     
     }
 }
