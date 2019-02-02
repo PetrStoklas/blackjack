@@ -21,10 +21,11 @@ body {
 }
 
 .cards {
-  display: flex;
+  // display: flex;
   height: $card-height + 18px;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  
 }
 
 .score {
@@ -42,7 +43,9 @@ body {
 }
 
 .table {
+  display: flex;
   height: $card-height;
+  
 }
 
 button {

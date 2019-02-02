@@ -3,15 +3,76 @@
           box-sizing: border-box;
 }
 
+@-webkit-keyframes slide-in-player {
+  from {
+    display: block;
+    bottom: 50%;
+    right: 150%;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+  }
+  99% {
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    display: none;
+  }
+}
+
+@keyframes slide-in-player {
+  from {
+    display: block;
+    bottom: 50%;
+    right: 150%;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+  }
+  99% {
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    display: none;
+  }
+}
+
 .card {
+  display: block;
   width: 104px;
   height: 152px;
   background-color: white;
   background-size: cover;
   border-radius: 5px;
   margin: 0.5rem 0.25rem;
+  float: right;
   -webkit-box-shadow: 0 0 6px #333;
           box-shadow: 0 0 6px #333;
+}
+
+.stack {
+  position: relative;
+}
+
+.under {
+  position: absolute;
+}
+
+.comming {
+  -webkit-animation: slide-in-player 3s;
+          animation: slide-in-player 3s;
+}
+
+.hidden {
+  display: none;
 }
 
 .face-revers {
@@ -249,13 +310,10 @@ body {
 }
 
 .cards {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   height: 170px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -276,6 +334,9 @@ body {
 }
 
 .table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 152px;
 }
 

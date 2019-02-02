@@ -91,6 +91,7 @@ class Deck {
   
   mount(parent){
     // console.log('start works deck');
+    
     parent.appendChild(this.render());
     // this.update();
   }
@@ -99,18 +100,50 @@ class Deck {
     indexOfCards++;
   }
 
+  cardAnimationPl(cil){
+    console.log('animation');
+    this.target = cil;
+    this.card = document.createElement('div');
+    this.card.className = 'card face-revers comming';
+    this.card.style.position = 'relative';
+    this.target.appendChild(this.card);
+    console.log('taddyyyy');
+    setTimeout(() => {this.card.className = '.hidden';
+  console.log('kurva');}, 3000);
+    
+  }
+
   getStart(){
     this.mount(dealerHand);//GIVES FIRST CARD ON TABLE
     this.update();
 
-    this.mount(playerHand);//SECOND CARD ON TABLE
-    this.update();
+    this.cardAnimationPl(playerHand);
+
+    setTimeout(() => {
+      this.mount(playerHand);
+    }, 3000);
+    
+    setTimeout(() => {
+      this.update(playerHand);
+    }, 3001)
+    
     
     this.reverse = document.createElement('div');//REVERSED CARD ON TABLE
-    this.reverse.className = "card face-revers";
+    this.reverse.className = 'card face-revers';
     dealerHand.appendChild(this.reverse);
-    this.mount(playerHand);//THIRD CARD ON TABLE
-    this.update();
+
+
+    setTimeout(() => {
+      this.cardAnimationPl(playerHand);
+    }, 3002);
+
+    setTimeout(() => {
+      this.mount(playerHand);
+    }, 6002);//THIRD CARD ON TABLE
+
+    setInterval(() => {
+      this.update();
+    }, 6003);
     
     
     this.player.score = this.cards[1].getValue() + this.cards[2].getValue();//ADDS PLAYERS SCORE AFTER START

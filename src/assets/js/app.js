@@ -1,4 +1,4 @@
-let indexOfCards = 0;//AFTER getStart()
+let indexOfCards = 0;
 
 const dealerHand = document.querySelector('.dealer-cards');
 const playerHand = document.querySelector('.player-cards');
@@ -19,9 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const hitBtn = document.querySelector('.js-hit');
   hitBtn.addEventListener('click', () => { 
-    deck.mount(playerHand);
-    playerOne.score += deck.cards[indexOfCards].getValue();    
-    playerOne.update();    
+    console.log('clicked');
+    deck.cardAnimationPl(playerHand);
+    console.log('animated');
+    setTimeout(() => {
+      deck.mount(playerHand);
+      playerOne.score += deck.cards[indexOfCards].getValue();    
+      playerOne.update();    
+    }, 3001)
     deck.update();    
     
   });

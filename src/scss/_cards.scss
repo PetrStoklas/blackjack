@@ -1,16 +1,57 @@
 $card-width: 104px;
 $card-height: 152px;
 
+@keyframes slide-in-player{
+  from {
+    display: block;
+    // position: absolute;
+    bottom: 50%;
+    right: 150%;
+    transform: rotate(0deg);
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+    
+  }
+  99% {
+
+  }
+  to {
+    transform: rotate(360deg);
+    display: none;
+  }
+}
 .card {
+  display: block;
   width: $card-width;
   height: $card-height;
   background-color: white;
   background-size: cover;
   border-radius: 5px;
   margin: 0.5rem 0.25rem;
+  float: right;
 
   @include shadow();
 }
+
+.stack {
+  position: relative;
+}
+
+.under {
+  position: absolute;
+}
+
+.comming {
+  animation: slide-in-player 3s;
+}
+
+.hidden {
+  display: none;
+}
+
+
 
 .face-revers {
   background-image: url('../src/assets/img/revers.svg');
