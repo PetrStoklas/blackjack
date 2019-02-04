@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       deck.mount(playerHand);
       playerOne.score += deck.cards[indexOfCards].getValue();    
       playerOne.update();    
-    }, 3001)
+    }, 2000)
     deck.update();    
     
   });

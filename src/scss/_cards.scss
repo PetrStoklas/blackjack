@@ -7,21 +7,45 @@ $card-height: 152px;
     // position: absolute;
     bottom: 50%;
     right: 150%;
-    transform: rotate(0deg);
+    transform: rotateY(0) rotate(0deg);
   }
   90% {
     right: 0;
     bottom: 0;
+    transform: rotateY(0) rotate(360deg);
     
   }
-  99% {
-
-  }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(90deg) rotate(360deg);
     display: none;
   }
 }
+
+@keyframes slide-in-dealer{
+  from {
+    display: block;
+    // position: absolute;
+    top: 50%;
+    right: 150%;
+    transform: rotateY(0) rotate(0deg);
+  }
+  90% {
+    right: 0;
+    bottom: 0;
+    transform: rotateY(0) rotate(360deg);
+    
+  }
+  to {
+    transform: rotateY(90deg) rotate(360deg);
+    display: none;
+  }
+}
+
+@keyframes face-up {
+  from { transform: rotateY(90deg); }
+  to { transform: rotateY(0);}
+}
+
 .card {
   display: block;
   width: $card-width;
@@ -43,8 +67,14 @@ $card-height: 152px;
   position: absolute;
 }
 
-.comming {
-  animation: slide-in-player 3s;
+.comming-pl {
+  animation: slide-in-player 2s;
+}
+
+.comming-dl
+
+.came {
+  animation: face-up .5s;
 }
 
 .hidden {

@@ -85,7 +85,7 @@ class Deck {
   render(){
     // console.log('rendered');
     this.element = document.createElement('div');
-    this.element.className = `card face-${this.cards[indexOfCards].rank}-of-${this.cards[indexOfCards].suit}`;
+    this.element.className = `card face-${this.cards[indexOfCards].rank}-of-${this.cards[indexOfCards].suit} came`;
     return this.element;
   }
   
@@ -100,17 +100,15 @@ class Deck {
     indexOfCards++;
   }
 
-  cardAnimationPl(cil){
-    console.log('animation');
+  cardAnimationPl(cil, who){
+
+    // console.log('animation');
     this.target = cil;
     this.card = document.createElement('div');
-    this.card.className = 'card face-revers comming';
+    this.card.className = `card face-revers comming-${who}`;
     this.card.style.position = 'relative';
     this.target.appendChild(this.card);
-    console.log('taddyyyy');
-    setTimeout(() => {this.card.className = '.hidden';
-  console.log('kurva');}, 3000);
-    
+    setTimeout(() => {this.card.className = '.hidden';}, 2000);
   }
 
   getStart(){
@@ -121,11 +119,11 @@ class Deck {
 
     setTimeout(() => {
       this.mount(playerHand);
-    }, 3000);
-    
-    setTimeout(() => {
       this.update(playerHand);
-    }, 3001)
+    }, 2000);
+    
+    // setTimeout(() => {
+    // }, 2000)
     
     
     this.reverse = document.createElement('div');//REVERSED CARD ON TABLE
@@ -135,19 +133,18 @@ class Deck {
 
     setTimeout(() => {
       this.cardAnimationPl(playerHand);
-    }, 3002);
+    }, 2001);
 
     setTimeout(() => {
       this.mount(playerHand);
-    }, 6002);//THIRD CARD ON TABLE
-
-    setInterval(() => {
       this.update();
-    }, 6003);
+      this.player.score = this.cards[1].getValue() + this.cards[2].getValue();//ADDS PLAYERS SCORE AFTER START
+      this.player.update();
+    }, 4001);//THIRD CARD ON TABLE
+
     
     
-    this.player.score = this.cards[1].getValue() + this.cards[2].getValue();//ADDS PLAYERS SCORE AFTER START
-    this.player.update();
+    
     
 
     this.dealer.score = this.cards[0].getValue();//ADDS CASINOS  PRE-SCORE AFTER START
