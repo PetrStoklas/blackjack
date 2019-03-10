@@ -90,19 +90,14 @@ class Deck {
   }
   
   mount(parent){
-    // console.log('start works deck');
-    
     parent.appendChild(this.render());
-    // this.update();
   }
 
   update(){
     indexOfCards++;
   }
 
-  cardAnimationPl(cil, who){
-
-    // console.log('animation');
+  cardAnimationPl(cil, who){    
     this.target = cil;
     this.card = document.createElement('div');
     this.card.className = `card face-revers comming-${who}`;
@@ -115,16 +110,12 @@ class Deck {
     this.mount(dealerHand);//GIVES FIRST CARD ON TABLE
     this.update();
 
-    this.cardAnimationPl(playerHand);
+    this.cardAnimationPl(playerHand, 'pl');
 
     setTimeout(() => {
       this.mount(playerHand);
       this.update(playerHand);
     }, 2000);
-    
-    // setTimeout(() => {
-    // }, 2000)
-    
     
     this.reverse = document.createElement('div');//REVERSED CARD ON TABLE
     this.reverse.className = 'card face-revers';
@@ -132,7 +123,7 @@ class Deck {
 
 
     setTimeout(() => {
-      this.cardAnimationPl(playerHand);
+      this.cardAnimationPl(playerHand, 'pl');
     }, 2001);
 
     setTimeout(() => {
